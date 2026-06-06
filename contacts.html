@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Контактна інформація та форма зворотного зв'язку">
+    <meta name="author" content="Мусієнко Іван">
+    <title>Контакти — Портфоліо</title>
+</head>
+<body>
+
+    <header>
+        <h1>Портфоліо Мусієнка Івана</h1>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="about.html">Про мене</a></li>
+                <li>Контакти</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Контактна інформація</h2>
+
+            <p>
+                Email:
+                <a href="mailto:i.y.musiienko@student.khai.edu">
+                    i.y.musiienko@student.khai.edu
+                </a>
+            </p>
+
+            <p>
+                Телефон:
+                <a href="tel:+13060000000">+1 306 000 0000</a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Форма зворотного зв'язку</h2>
+
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Контактна інформація</legend>
+
+                    <label for="name">Ім'я:</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Введіть ваше ім'я"
+                        required
+                    >
+
+                    <br><br>
+
+                    <label for="email">Email:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="email@example.com"
+                        required
+                    >
+                </fieldset>
+
+                <fieldset>
+                    <legend>Повідомлення</legend>
+
+                    <label for="subject">Тема звернення:</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">-- Оберіть тему --</option>
+                        <option value="general">Загальне питання</option>
+                        <option value="cooperation">Співпраця</option>
+                        <option value="feedback">Відгук</option>
+                    </select>
+
+                    <p>Тип звернення:</p>
+
+                    <label>
+                        <input type="radio" name="type" value="question" required>
+                        Питання
+                    </label>
+
+                    <br>
+
+                    <label>
+                        <input type="radio" name="type" value="suggestion">
+                        Пропозиція
+                    </label>
+
+                    <br>
+
+                    <label>
+                        <input type="radio" name="type" value="complaint">
+                        Скарга
+                    </label>
+
+                    <br><br>
+
+                    <label for="message">Повідомлення:</label>
+                    <br>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        placeholder="Введіть ваше повідомлення"
+                        required
+                    ></textarea>
+                </fieldset>
+
+                <br>
+
+                <label>
+                    <input type="checkbox" name="consent" required>
+                    Я погоджуюсь на обробку персональних даних
+                </label>
+
+                <br><br>
+
+                <button type="submit">Надіслати</button>
+            </form>
+        </section>
+
+        <aside>
+            <h2>Додаткова інформація</h2>
+            <p>
+                Ви можете використати форму для надсилання питання, пропозиції або відгуку.
+            </p>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Мусієнко Іван. Всі права захищені.</p>
+    </footer>
+
+</body>
+</html>
