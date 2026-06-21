@@ -352,7 +352,9 @@ ol li::marker {
         border-color var(--transition-speed) ease;
 }
 
-.project-card:hover {
+.project-card:hover,
+.project-card:active,
+.project-card:focus-within {
     transform: translateY(-0.4rem);
     border-color: var(--color-primary);
     box-shadow: var(--shadow-md);
