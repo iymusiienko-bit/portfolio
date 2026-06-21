@@ -1,100 +1,146 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Головна сторінка персонального портфоліо Івана Мусієнка">
-    <meta name="author" content="Мусієнко Іван">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Головна сторінка персонального портфоліо Івана Мусієнка"
+    />
+    <meta name="author" content="Мусієнко Іван" />
     <title>Головна — Портфоліо</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <header>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header>
         <h1>Портфоліо Мусієнко Івана</h1>
+        <nav class="nav">
+          <input type="checkbox" id="menu-toggle" class="menu-toggle" />
 
-        <nav>
-            <ul>
-                <li>Головна</li>
-                <li><a href="about.html">Про мене</a></li>
-                <li><a href="contacts.html">Контакти</a></li>
-            </ul>
+          <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+
+          <ul class="nav-list">
+            <li>Головна</li>
+            <li><a href="about.html">Про мене</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+          </ul>
         </nav>
-    </header>
+      </header>
 
-    <main>
+      <main>
         <section id="hero">
-            <h2>Вітаю на моєму сайті</h2>
+          <h2>Вітаю на моєму сайті</h2>
 
-            <p>
-                Мене звати <strong>Іван Мусієнко</strong>. Це мій персональний сайт-портфоліо,
-                створений у межах лабораторної роботи з HTML.
-            </p>
+          <p>
+            Мене звати <strong>Іван Мусієнко</strong>. Це мій персональний
+            сайт-портфоліо, створений у межах лабораторної роботи з HTML.
+          </p>
 
-            <p>
-                Я цікавлюся <em>frontend-розробкою</em>, програмуванням та сучасними веб-технологіями.
-                Моя мета — навчитися створювати зручні, зрозумілі та корисні веб-сайти.
-            </p>
+          <p>
+            Я цікавлюся <em>frontend-розробкою</em>, програмуванням та сучасними
+            веб-технологіями. Моя мета — навчитися створювати зручні, зрозумілі
+            та корисні веб-сайти.
+          </p>
 
-            <blockquote>
-                "Кожен великий результат починається з першого кроку."
-            </blockquote>
+          <blockquote>
+            "Кожен великий результат починається з першого кроку."
+          </blockquote>
         </section>
 
         <section>
-            <h2>Мої основні цілі</h2>
+          <h2>Мої основні цілі</h2>
 
-            <ol>
-                <li>Покращити знання HTML.</li>
-                <li>Вивчити CSS для оформлення сторінок.</li>
-                <li>Опанувати JavaScript.</li>
-                <li>Створити власне портфоліо frontend-розробника.</li>
-                <li>Навчитися правильно використовувати семантичні HTML-теги.</li>
-            </ol>
+          <ol>
+            <li>Покращити знання HTML.</li>
+            <li>Вивчити CSS для оформлення сторінок.</li>
+            <li>Опанувати JavaScript.</li>
+            <li>Створити власне портфоліо frontend-розробника.</li>
+            <li>Навчитися правильно використовувати семантичні HTML-теги.</li>
+          </ol>
+        </section>
+        <section>
+          <h2>Мої навчальні проєкти</h2>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <h3>HTML-портфоліо</h3>
+              <p>
+                Створення структури багатосторінкового сайту за допомогою HTML.
+              </p>
+            </article>
+
+            <article class="project-card">
+              <h3>CSS-стилізація</h3>
+              <p>Оформлення сторінок за допомогою зовнішнього CSS-файлу.</p>
+            </article>
+
+            <article class="project-card">
+              <h3>Адаптивна верстка</h3>
+              <p>
+                Налаштування сайту для мобільних пристроїв, планшетів і
+                десктопів.
+              </p>
+            </article>
+          </div>
         </section>
 
         <section>
-            <h2>Моє фото або аватар</h2>
+          <h2>Моє фото або аватар</h2>
 
-            <figure>
-                <img src="images/photo.jpg" alt="Фото або аватар Івана Мусієнка" width="300">
-                <figcaption>Фото або аватар для персонального портфоліо.</figcaption>
-            </figure>
+          <figure>
+            <img
+              src="images/photo.jpg"
+              alt="Фото або аватар Івана Мусієнка"
+              width="300"
+            />
+            <figcaption>
+              Фото або аватар для персонального портфоліо.
+            </figcaption>
+          </figure>
         </section>
 
         <section>
-            <h2>Коротке відео</h2>
+          <h2>Коротке відео</h2>
 
-            <figure>
-                <video controls width="400">
-                    <source src="video/intro.mp4" type="video/mp4">
-                    Ваш браузер не підтримує відео.
-                </video>
-                <figcaption>Коротке вступне відео для портфоліо.</figcaption>
-            </figure>
+          <figure>
+            <video controls width="400">
+              <source src="video/intro.mp4" type="video/mp4" />
+              Ваш браузер не підтримує відео.
+            </video>
+            <figcaption>Коротке вступне відео для портфоліо.</figcaption>
+          </figure>
         </section>
-        
-        <aside>
-            <h2>Додаткова інформація</h2>
-            <p>
-                Цей сайт створено за допомогою HTML та стилізовано з використанням CSS.
-            </p>
-            <p>
-                Проєкт демонструє мої перші практичні навички роботи з HTML5:
-                структуру сторінки, навігацію, списки, зображення та мультимедіа.
-            </p>
-        </aside>
-    </main>
+      </main>
 
-    <footer>
+      <aside>
+        <h2>Додаткова інформація</h2>
+        <p>
+          Цей сайт створено за допомогою HTML та стилізовано з використанням
+          CSS.
+        </p>
+        <p>
+          Проєкт демонструє мої перші практичні навички роботи з HTML5:
+          структуру сторінки, навігацію, списки, зображення та мультимедіа.
+        </p>
+      </aside>
+
+      <footer>
         <p>&copy; 2026 Мусієнко Іван. Всі права захищені.</p>
-    </footer>
+      </footer>
 
-     <a href="#" class="back-to-top">↑ Нагору</a>
-
-</body>
+      <a href="#" class="back-to-top">↑ Нагору</a>
+    </div>
+  </body>
 </html>

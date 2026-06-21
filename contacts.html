@@ -1,153 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Контактна інформація та форма зворотного зв'язку">
-    <meta name="author" content="Мусієнко Іван">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Контактна інформація та форма зворотного зв'язку"
+    />
+    <meta name="author" content="Мусієнко Іван" />
     <title>Контакти — Портфоліо</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <header>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header>
         <h1>Портфоліо Мусієнка Івана</h1>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Головна</a></li>
-                <li><a href="about.html">Про мене</a></li>
-                <li>Контакти</li>
-            </ul>
+        <nav class="nav">
+          <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+          <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+
+          <ul class="nav-list">
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="about.html">Про мене</a></li>
+            <li>Контакти</li>
+          </ul>
         </nav>
-    </header>
+      </header>
 
-    <main>
+      <main>
         <section>
-            <h2>Контактна інформація</h2>
+          <h2>Контактна інформація</h2>
 
-            <p>
-                Email:
-                <a href="mailto:i.y.musiienko@student.khai.edu">
-                    i.y.musiienko@student.khai.edu
-                </a>
-            </p>
+          <p>
+            Email:
+            <a href="mailto:i.y.musiienko@student.khai.edu">
+              i.y.musiienko@student.khai.edu
+            </a>
+          </p>
 
-            <p>
-                Телефон:
-                <a href="tel:+13060000000">+1 306 000 0000</a>
-            </p>
+          <p>
+            Телефон:
+            <a href="tel:+13060000000">+1 306 000 0000</a>
+          </p>
 
-            <p>
-                GitHub:
-                <a href="https://github.com/iymusiienko-bit/portfolio">Репозиторій мого портфоліо</a>
-            </p>
+          <p>
+            GitHub:
+            <a href="https://github.com/iymusiienko-bit/portfolio"
+              >Репозиторій мого портфоліо</a
+            >
+          </p>
         </section>
 
         <section>
-            <h2>Форма зворотного зв'язку</h2>
+          <h2>Форма зворотного зв'язку</h2>
 
-            <form action="#" method="post">
-                <fieldset>
-                    <legend>Контактна інформація</legend>
+          <form action="#" method="post">
+            <fieldset>
+              <legend>Контактна інформація</legend>
 
-                    <label for="name">Ім'я:</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Введіть ваше ім'я"
-                        required
-                    >
+              <label for="name">Ім'я:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Введіть ваше ім'я"
+                required
+              />
 
-                    <br><br>
+              <br /><br />
 
-                    <label for="email">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="email@example.com"
-                        required
-                    >
-                </fieldset>
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="email@example.com"
+                required
+              />
+            </fieldset>
 
-                <fieldset>
-                    <legend>Повідомлення</legend>
+            <fieldset>
+              <legend>Повідомлення</legend>
 
-                    <label for="subject">Тема звернення:</label>
-                    <select id="subject" name="subject" required>
-                        <option value="">-- Оберіть тему --</option>
-                        <option value="general">Загальне питання</option>
-                        <option value="cooperation">Співпраця</option>
-                        <option value="feedback">Відгук</option>
-                        <option value="portfolio">Питання щодо портфоліо</option>
-                    </select>
+              <label for="subject">Тема звернення:</label>
+              <select id="subject" name="subject" required>
+                <option value="">-- Оберіть тему --</option>
+                <option value="general">Загальне питання</option>
+                <option value="cooperation">Співпраця</option>
+                <option value="feedback">Відгук</option>
+                <option value="portfolio">Питання щодо портфоліо</option>
+              </select>
 
-                    <p>Тип звернення:</p>
+              <p>Тип звернення:</p>
 
-                    <label>
-                        <input type="radio" name="type" value="question" required>
-                        Питання
-                    </label>
+              <label>
+                <input type="radio" name="type" value="question" required />
+                Питання
+              </label>
 
-                    <br>
+              <br />
 
-                    <label>
-                        <input type="radio" name="type" value="suggestion">
-                        Пропозиція
-                    </label>
+              <label>
+                <input type="radio" name="type" value="suggestion" />
+                Пропозиція
+              </label>
 
-                    <br>
+              <br />
 
-                    <label>
-                        <input type="radio" name="type" value="complaint">
-                        Скарга
-                    </label>
+              <label>
+                <input type="radio" name="type" value="complaint" />
+                Скарга
+              </label>
 
-                    <br><br>
+              <br /><br />
 
-                    <label for="message">Повідомлення:</label>
-                    <br>
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="5"
-                        placeholder="Введіть ваше повідомлення"
-                        required
-                    ></textarea>
-                </fieldset>
+              <label for="message">Повідомлення:</label>
+              <br />
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Введіть ваше повідомлення"
+                required
+              ></textarea>
+            </fieldset>
 
-                <br>
+            <br />
 
-                <label>
-                    <input type="checkbox" name="consent" required>
-                    Я погоджуюсь на обробку персональних даних
-                </label>
+            <label>
+              <input type="checkbox" name="consent" required />
+              Я погоджуюсь на обробку персональних даних
+            </label>
 
-                <br><br>
+            <br /><br />
 
-                <button type="submit">Надіслати</button>
-            </form>
+            <button type="submit">Надіслати</button>
+          </form>
         </section>
-
-        <aside>
-            <h2>Додаткова інформація</h2>
-            <p>
-                Ви можете використати форму для надсилання питання, пропозиції або відгуку.
-            </p>
-        </aside>
-    </main>
-
-    <footer>
+      </main>
+      <aside>
+        <h2>Додаткова інформація</h2>
+        <p>
+          Ви можете використати форму для надсилання питання, пропозиції або
+          відгуку.
+        </p>
+      </aside>
+      <footer>
         <p>&copy; 2026 Мусієнко Іван. Всі права захищені.</p>
-    </footer>
+      </footer>
 
-    <a href="#" class="back-to-top">↑ Нагору</a>
-    
-</body>
+      <a href="#" class="back-to-top">↑ Нагору</a>
+    </div>
+  </body>
 </html>

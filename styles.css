@@ -1,3 +1,32 @@
+/* ===== CSS-змінні / тема ===== */
+
+:root {
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-secondary: #10b981;
+    --color-bg: #f5f7fa;
+    --color-surface: #ffffff;
+    --color-text: #111827;
+    --color-muted: #6b7280;
+    --color-border: #e5e7eb;
+    --color-header: #111827;
+    --color-accent: #ef4444;
+
+    --font-main: "Inter", Arial, sans-serif;
+    --font-heading: "Inter", Arial, sans-serif;
+
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+
+    --border-radius: 1rem;
+    --transition-speed: 0.3s;
+    --shadow-sm: 0 0.25rem 1rem rgba(15, 23, 42, 0.08);
+    --shadow-md: 0 0.6rem 1.5rem rgba(15, 23, 42, 0.14);
+}
+
 /* ===== Загальні стилі ===== */
 
 *,
@@ -13,30 +42,30 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 1rem;
+    font-family: var(--font-main);
+    font-size: clamp(0.95rem, 1.5vw, 1.125rem);
     line-height: 1.6;
-    color: #1f2937;
-    background: rgb(245, 247, 250);
-    padding-top: 7rem;
+    color: var(--color-text);
+    background: var(--color-bg);
 }
 
 h1,
 h2,
 h3 {
     margin-top: 0;
-    color: #111827;
+    font-family: var(--font-heading);
     line-height: 1.2;
+    color: var(--color-text);
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: clamp(1.75rem, 4vw, 3rem);
 }
 
 h2 {
-    font-size: 1.5rem;
     position: relative;
-    margin-bottom: 1.25rem;
+    margin-bottom: var(--spacing-lg);
+    font-size: clamp(1.25rem, 3vw, 2rem);
 }
 
 h2::after {
@@ -44,22 +73,22 @@ h2::after {
     display: block;
     width: 4rem;
     height: 0.2rem;
-    margin-top: 0.5rem;
-    border-radius: 1rem;
-    background: hsl(217, 91%, 60%);
+    margin-top: var(--spacing-sm);
+    border-radius: 999px;
+    background: var(--color-primary);
 }
 
 h3 {
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
 }
 
 p {
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-md);
 }
 
 a:link {
-    color: #2563eb;
+    color: var(--color-primary);
 }
 
 a:visited {
@@ -67,125 +96,211 @@ a:visited {
 }
 
 a:hover {
-    color: #1d4ed8;
+    color: var(--color-primary-dark);
 }
 
 a:active {
-    color: #dc2626;
+    color: var(--color-accent);
 }
 
-a:focus {
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
     outline: 0.15rem solid #60a5fa;
     outline-offset: 0.2rem;
 }
 
-/* ===== Хедер та навігація ===== */
+/* ===== Grid-макет сторінки ===== */
+
+.page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "content"
+        "sidebar"
+        "footer";
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
 
 header {
-    position: fixed;
+    grid-area: header;
+}
+
+main {
+    grid-area: content;
+    width: min(92%, 72rem);
+    margin: 0 auto;
+    padding: var(--spacing-lg) 0;
+}
+
+aside {
+    grid-area: sidebar;
+}
+
+footer {
+    grid-area: footer;
+}
+
+/* ===== Хедер та Flexbox-навігація ===== */
+
+header {
+    position: sticky;
     top: 0;
-    left: 0;
     z-index: 1000;
-    width: 100%;
-    padding: 1rem 2rem;
-    background: #111827;
+    padding: var(--spacing-md);
+    background: var(--color-header);
     color: #ffffff;
-    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-md);
 }
 
 header h1 {
-    margin-bottom: 0.75rem;
+    margin-bottom: var(--spacing-md);
     color: #ffffff;
-    font-size: 1.5rem;
 }
 
-nav ul {
-    margin: 0;
+/* Flexbox для навігації */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 2rem;
+    height: 0.2rem;
+    border-radius: 999px;
+    background: #ffffff;
+    transition: transform var(--transition-speed) ease,
+        opacity var(--transition-speed) ease,
+        background-color var(--transition-speed) ease;
+}
+
+.hamburger:hover span {
+    background: #bfdbfe;
+}
+
+.nav-list {
+    display: none;
+    width: 100%;
+    margin: var(--spacing-md) 0 0;
     padding: 0;
     list-style: none;
+    flex-direction: column;
+    gap: var(--spacing-sm);
 }
 
-nav ul li {
-    display: inline-block;
-    margin-right: 0.75rem;
+.menu-toggle:checked ~ .nav-list {
+    display: flex;
+    animation: fadeIn 0.35s ease forwards;
+}
+
+.menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: translateY(0.55rem) rotate(45deg);
+}
+
+.menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: translateY(-0.55rem) rotate(-45deg);
+}
+
+.nav-list li {
     color: #ffffff;
-    font-weight: 500;
+    font-weight: 700;
 }
 
-nav ul li a {
+.nav-list a {
     display: inline-block;
-    padding: 0.5rem 0.9rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
     border-radius: 999px;
     color: #ffffff;
     text-decoration: none;
-    background: #2563eb;
-    transition: background 0.2s ease, transform 0.2s ease;
+    background: var(--color-primary);
+    transition: background-color var(--transition-speed) ease,
+        transform var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease;
 }
 
-nav ul li a:link,
-nav ul li a:visited {
+.nav-list a:link,
+.nav-list a:visited {
     color: #ffffff;
 }
 
-nav ul li a:hover {
-    background: #1d4ed8;
+.nav-list a:hover {
     color: #ffffff;
-    transform: translateY(-0.1rem);
+    background: var(--color-primary-dark);
+    transform: translateY(-0.12rem);
+    box-shadow: 0 0.4rem 1rem rgba(37, 99, 235, 0.35);
 }
 
-nav ul li a:active {
+.nav-list a:active {
     background: #1e40af;
     transform: translateY(0);
 }
 
-nav ul li a:focus {
-    outline: 0.15rem solid #bfdbfe;
-    outline-offset: 0.2rem;
-}
-
 /* ===== Основний контент ===== */
-
-main {
-    width: min(90%, 70rem);
-    margin: 0 auto;
-    padding: 2rem 0;
-}
 
 section,
 aside {
     position: relative;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    border: 0.06rem solid #e5e7eb;
-    border-radius: 1rem;
-    background: #ffffff;
-    box-shadow: 0 0.25rem 1rem rgba(15, 23, 42, 0.08);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    border: 0.06rem solid var(--color-border);
+    border-radius: var(--border-radius);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+    animation: fadeIn 0.6s ease forwards;
+    transition: transform var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease;
 }
 
 section:hover,
 aside:hover {
-    box-shadow: 0 0.5rem 1.5rem rgba(15, 23, 42, 0.12);
+    transform: translateY(-0.2rem);
+    box-shadow: var(--shadow-md);
+}
+
+#hero {
+    border-left: 0.35rem solid var(--color-primary);
 }
 
 section:first-child::before {
     content: "HTML";
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    padding: 0.25rem 0.6rem;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    padding: 0.25rem 0.65rem;
     border-radius: 999px;
     color: #ffffff;
-    background: #10b981;
+    background: var(--color-secondary);
     font-size: 0.8rem;
     font-weight: 700;
 }
 
 blockquote {
     position: relative;
-    margin: 1.5rem 0;
-    padding: 1rem 1.5rem;
-    border-left: 0.3rem solid #2563eb;
-    border-radius: 0.75rem;
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-left: 0.3rem solid var(--color-primary);
+    border-radius: calc(var(--border-radius) - 0.25rem);
     background: hsl(214, 100%, 97%);
     font-style: italic;
     overflow: hidden;
@@ -209,51 +324,84 @@ dl {
 
 ol li,
 section ul li {
-    margin-bottom: 0.4rem;
+    margin-bottom: var(--spacing-sm);
 }
 
 section ul li::marker,
 ol li::marker {
-    color: #2563eb;
+    color: var(--color-primary);
     font-weight: 700;
 }
+
+/* ===== CSS Grid: адаптивна сітка карток ===== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--spacing-md);
+}
+
+.project-card {
+    padding: var(--spacing-lg);
+    border: 0.06rem solid var(--color-border);
+    border-radius: var(--border-radius);
+    background: linear-gradient(135deg, #ffffff, #eff6ff);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease,
+        border-color var(--transition-speed) ease;
+}
+
+.project-card:hover {
+    transform: translateY(-0.4rem);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.project-card h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ===== Адаптивні зображення та мультимедіа ===== */
 
 figure {
     margin: 0;
     overflow: hidden;
+    border-radius: var(--border-radius);
 }
 
 img,
 video {
+    display: block;
     max-width: 100%;
     height: auto;
-    border-radius: 1rem;
-    border: 0.2rem solid #e5e7eb;
+    border-radius: var(--border-radius);
+    border: 0.15rem solid var(--color-border);
 }
 
 figcaption {
-    margin-top: 0.5rem;
-    color: #6b7280;
+    margin-top: var(--spacing-sm);
+    color: var(--color-muted);
     font-size: 0.9rem;
 }
-#hero {
-    border-left: 0.35rem solid #2563eb;
-}
+
 /* ===== Таблиця ===== */
 
 table {
+    display: block;
     width: 100%;
+    margin-top: var(--spacing-md);
+    overflow-x: auto;
     border-collapse: collapse;
-    margin-top: 1rem;
-    overflow: hidden;
     border: 0.06rem solid #d1d5db;
-    border-radius: 0.75rem;
+    border-radius: var(--border-radius);
+    background: var(--color-surface);
 }
 
 caption {
-    margin-bottom: 0.75rem;
+    margin-bottom: var(--spacing-sm);
     font-weight: 700;
-    color: #111827;
+    color: var(--color-text);
 }
 
 th,
@@ -261,11 +409,12 @@ td {
     padding: 0.9rem;
     border: 0.06rem solid #d1d5db;
     text-align: left;
+    white-space: nowrap;
 }
 
 th {
     color: #ffffff;
-    background: #1f2937;
+    background: var(--color-header);
     font-weight: 700;
 }
 
@@ -280,14 +429,14 @@ tbody tr:hover {
 /* ===== Список опису ===== */
 
 dt {
-    margin-top: 1rem;
+    margin-top: var(--spacing-md);
     font-weight: 700;
-    color: #111827;
+    color: var(--color-text);
 }
 
 dd {
     margin-left: 0;
-    padding-left: 1rem;
+    padding-left: var(--spacing-md);
     border-left: 0.2rem solid #93c5fd;
     color: #4b5563;
 }
@@ -295,26 +444,26 @@ dd {
 /* ===== Форма ===== */
 
 form {
-    max-width: 45rem;
+    max-width: 48rem;
 }
 
 fieldset {
-    margin-bottom: 1.5rem;
-    padding: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
     border: 0.06rem solid #d1d5db;
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
     background: #f9fafb;
 }
 
 legend {
-    padding: 0 0.5rem;
+    padding: 0 var(--spacing-sm);
     font-weight: 700;
-    color: #111827;
+    color: var(--color-text);
 }
 
 label {
     display: inline-block;
-    margin-bottom: 0.4rem;
+    margin-bottom: var(--spacing-sm);
     font-weight: 500;
 }
 
@@ -325,10 +474,12 @@ textarea {
     width: 100%;
     padding: 0.75rem;
     border: 0.08rem solid #cbd5e1;
-    border-radius: 0.6rem;
+    border-radius: calc(var(--border-radius) - 0.35rem);
     font: inherit;
-    color: #111827;
-    background: #ffffff;
+    color: var(--color-text);
+    background: var(--color-surface);
+    transition: border-color var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease;
 }
 
 input[type="text"]:focus,
@@ -336,14 +487,14 @@ input[type="email"]:focus,
 select:focus,
 textarea:focus {
     outline: none;
-    border-color: #2563eb;
+    border-color: var(--color-primary);
     box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.2);
 }
 
 input[type="radio"],
 input[type="checkbox"] {
-    margin-right: 0.4rem;
-    accent-color: #2563eb;
+    margin-right: var(--spacing-sm);
+    accent-color: var(--color-primary);
 }
 
 textarea {
@@ -356,32 +507,30 @@ button[type="submit"] {
     border: none;
     border-radius: 999px;
     color: #ffffff;
-    background: #2563eb;
+    background: var(--color-primary);
     font: inherit;
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: background-color var(--transition-speed) ease,
+        transform var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease;
 }
 
 button[type="submit"]:hover {
-    background: #1d4ed8;
-    transform: translateY(-0.1rem);
+    background: var(--color-primary-dark);
+    transform: translateY(-0.15rem);
+    box-shadow: 0 0.4rem 1rem rgba(37, 99, 235, 0.35);
 }
 
 button[type="submit"]:active {
-    background: #1e40af;
     transform: translateY(0);
+    background: #1e40af;
 }
 
-button[type="submit"]:focus {
-    outline: 0.15rem solid #60a5fa;
-    outline-offset: 0.2rem;
-}
-
-/* ===== Aside ===== */
+/* ===== Бічна панель / aside ===== */
 
 aside {
-    border-left: 0.35rem solid #2563eb;
+    border-left: 0.35rem solid var(--color-primary);
     background: hsl(214, 100%, 97%);
 }
 
@@ -389,17 +538,19 @@ aside {
 
 .back-to-top {
     position: fixed;
-    right: 1.5rem;
-    bottom: 1.5rem;
+    right: var(--spacing-md);
+    bottom: var(--spacing-md);
     z-index: 1001;
     display: inline-block;
     padding: 0.75rem 1rem;
     border-radius: 999px;
     color: #ffffff;
-    background: #111827;
+    background: var(--color-header);
     text-decoration: none;
     font-weight: 700;
     box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.25);
+    transition: background-color var(--transition-speed) ease,
+        transform var(--transition-speed) ease;
 }
 
 .back-to-top:link,
@@ -408,8 +559,9 @@ aside {
 }
 
 .back-to-top:hover {
-    background: #2563eb;
     color: #ffffff;
+    background: var(--color-primary);
+    transform: translateY(-0.15rem);
 }
 
 .back-to-top:active {
@@ -419,44 +571,135 @@ aside {
 /* ===== Футер ===== */
 
 footer {
-    padding: 1.5rem 2rem;
+    padding: var(--spacing-lg);
     color: #ffffff;
     text-align: center;
-    background: #111827;
+    background: var(--color-header);
 }
 
 footer p {
     margin: 0;
 }
 
-/* ===== Адаптивність ===== */
+/* ===== Анімації ===== */
 
-@media (max-width: 700px) {
-    body {
-        padding-top: 11rem;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(1.25rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Планшети: 768px+ ===== */
+
+@media (min-width: 768px) {
+    .page {
+        gap: var(--spacing-lg);
     }
 
     header {
-        padding: 1rem;
+        padding: var(--spacing-lg);
     }
 
-    nav ul li {
-        display: block;
-        margin: 0.4rem 0;
+    .hamburger {
+        display: none;
     }
 
-    nav ul li a {
-        width: 100%;
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: auto;
+        margin: 0;
+        gap: var(--spacing-md);
+    }
+
+    .nav-list a {
+        width: auto;
+    }
+
+    main {
+        padding: var(--spacing-xl) 0;
     }
 
     section,
     aside {
-        padding: 1rem;
+        padding: var(--spacing-lg);
     }
 
+    .projects-grid {
+        gap: var(--spacing-lg);
+    }
+}
+
+/* ===== Десктоп: 1024px+ ===== */
+
+@media (min-width: 1024px) {
+    .page {
+        grid-template-areas:
+            "header header"
+            "sidebar content"
+            "footer footer";
+        grid-template-columns: 16rem 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    header h1 {
+        margin-bottom: 0;
+    }
+
+    main {
+        width: min(92%, 72rem);
+        margin: 0;
+        padding-right: var(--spacing-lg);
+    }
+
+    aside {
+        align-self: start;
+        margin-left: var(--spacing-lg);
+        position: sticky;
+        top: 7rem;
+    }
+}
+
+/* ===== Великі екрани: 1280px+ ===== */
+
+@media (min-width: 1280px) {
+    .page {
+        grid-template-columns: 18rem 1fr;
+    }
+
+    main {
+        width: min(90%, 80rem);
+    }
+}
+/* ===== Фікс таблиці на мобільних екранах ===== */
+
+@media (max-width: 767px) {
     table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    th,
+    td {
+        white-space: normal;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        padding: 0.6rem;
+        font-size: 0.85rem;
     }
 }

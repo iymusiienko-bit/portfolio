@@ -1,146 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Інформація про Івана Мусієнка, освіту, навички та інтереси">
-    <meta name="author" content="Мусієнко Іван">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Інформація про Івана Мусієнка, освіту, навички та інтереси"
+    />
+    <meta name="author" content="Мусієнко Іван" />
     <title>Про мене — Портфоліо</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <header>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header>
         <h1>Портфоліо Мусієнка Івана</h1>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Головна</a></li>
-                <li>Про мене</li>
-                <li><a href="contacts.html">Контакти</a></li>
-            </ul>
+        <nav class="nav">
+          <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+          <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+
+          <ul class="nav-list">
+            <li><a href="index.html">Головна</a></li>
+            <li>Про мене</li>
+            <li><a href="contacts.html">Контакти</a></li>
+          </ul>
         </nav>
-    </header>
+      </header>
 
-    <main>
+      <main>
         <section>
-            <h2>Про мене</h2>
+          <h2>Про мене</h2>
 
-            <p>
-                Я студент, який цікавиться програмуванням, веб-розробкою та інформаційними технологіями.
-                Мені подобається створювати навчальні проєкти та поступово покращувати свої практичні навички.
-            </p>
+          <p>
+            Я студент, який цікавиться програмуванням, веб-розробкою та
+            інформаційними технологіями. Мені подобається створювати навчальні
+            проєкти та поступово покращувати свої практичні навички.
+          </p>
 
-            <p>
-                У майбутньому я хочу розвиватися у сфері frontend-розробки та працювати над реальними веб-проєктами.
-            </p>
+          <p>
+            У майбутньому я хочу розвиватися у сфері frontend-розробки та
+            працювати над реальними веб-проєктами.
+          </p>
         </section>
 
         <section>
-            <h2>Освіта</h2>
+          <h2>Освіта</h2>
 
-            <p>
-                Я навчаюся в університеті та вивчаю дисципліни, пов’язані з програмуванням,
-                комп’ютерними системами, веб-технологіями та розробкою програмного забезпечення.
-            </p>
+          <p>
+            Я навчаюся в університеті та вивчаю дисципліни, пов’язані з
+            програмуванням, комп’ютерними системами, веб-технологіями та
+            розробкою програмного забезпечення.
+          </p>
 
-            <h3>Мої навчальні інтереси</h3>
+          <h3>Мої навчальні інтереси</h3>
 
-            <ul>
-                <li>Веб-розробка</li>
-                <li>Програмування</li>
-                <li>Робота з Git та GitHub</li>
-                <li>Створення користувацьких інтерфейсів</li>
-                <li>Створення багатосторінкових сайтів</li>
-            </ul>
+          <ul>
+            <li>Веб-розробка</li>
+            <li>Програмування</li>
+            <li>Робота з Git та GitHub</li>
+            <li>Створення користувацьких інтерфейсів</li>
+            <li>Створення багатосторінкових сайтів</li>
+          </ul>
         </section>
 
         <section>
-            <h2>Мої технічні навички</h2>
+          <h2>Мої технічні навички</h2>
 
-            <table>
-                <caption>Мої технічні навички</caption>
-                <thead>
-                    <tr>
-                        <th>Технологія</th>
-                        <th>Рівень</th>
-                        <th>Досвід</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>HTML</td>
-                        <td>Початковий</td>
-                        <td>Лабораторні роботи</td>
-                    </tr>
-                    <tr>
-                        <td>Git</td>
-                        <td>Початковий</td>
-                        <td>Навчальні проєкти</td>
-                    </tr>
-                    <tr>
-                        <td>C++</td>
-                        <td>Середній</td>
-                        <td>Навчальні програми</td>
-                    </tr>
-                    <tr>
-                        <td>Qt Creator</td>
-                        <td>Початковий</td>
-                        <td>Створення простих додатків</td>
-                    </tr>
-                    <tr>
-                        <td>HTML5</td>
-                        <td>Початковий</td>
-                        <td>Структура веб-сторінок</td>
-                    </tr>
-                </tbody>
-            </table>
+          <table>
+            <caption>
+              Мої технічні навички
+            </caption>
+            <thead>
+              <tr>
+                <th>Технологія</th>
+                <th>Рівень</th>
+                <th>Досвід</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>HTML</td>
+                <td>Початковий</td>
+                <td>Лабораторні роботи</td>
+              </tr>
+              <tr>
+                <td>Git</td>
+                <td>Початковий</td>
+                <td>Навчальні проєкти</td>
+              </tr>
+              <tr>
+                <td>C++</td>
+                <td>Середній</td>
+                <td>Навчальні програми</td>
+              </tr>
+              <tr>
+                <td>Qt Creator</td>
+                <td>Початковий</td>
+                <td>Створення простих додатків</td>
+              </tr>
+              <tr>
+                <td>HTML5</td>
+                <td>Початковий</td>
+                <td>Структура веб-сторінок</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
 
         <section>
-            <h2>Основні поняття</h2>
+          <h2>Основні поняття</h2>
 
-            <dl>
-                <dt>HTML</dt>
-                <dd>Мова розмітки, яка використовується для створення структури веб-сторінок.</dd>
+          <dl>
+            <dt>HTML</dt>
+            <dd>
+              Мова розмітки, яка використовується для створення структури
+              веб-сторінок.
+            </dd>
 
-                <dt>Git</dt>
-                <dd>Система контролю версій, яка дозволяє зберігати історію змін у проєкті.</dd>
+            <dt>Git</dt>
+            <dd>
+              Система контролю версій, яка дозволяє зберігати історію змін у
+              проєкті.
+            </dd>
 
-                <dt>Frontend</dt>
-                <dd>Частина сайту або додатку, з якою взаємодіє користувач.</dd>
+            <dt>Frontend</dt>
+            <dd>Частина сайту або додатку, з якою взаємодіє користувач.</dd>
 
-                <dt>Семантичні теги</dt>
-                <dd>HTML-теги, які описують зміст і роль частин сторінки.</dd>
-            </dl>
+            <dt>Семантичні теги</dt>
+            <dd>HTML-теги, які описують зміст і роль частин сторінки.</dd>
+          </dl>
         </section>
 
         <section>
-            <h2>Друге зображення</h2>
+          <h2>Друге зображення</h2>
 
-            <figure>
-                <img src="images/avatar.jpg" alt="Аватар або зображення для сторінки про мене" width="300">
-                <figcaption>Зображення, яке доповнює сторінку про мене.</figcaption>
-            </figure>
+          <figure>
+            <img
+              src="images/avatar.jpg"
+              alt="Аватар або зображення для сторінки про мене"
+              width="300"
+            />
+            <figcaption>Зображення, яке доповнює сторінку про мене.</figcaption>
+          </figure>
         </section>
-
-        <aside>
-            <h2>Цікавий факт</h2>
-            <p>
-                Мені подобається вивчати нові технології через практичні завдання та лабораторні роботи.
-            </p>
-        </aside>
-    </main>
-
-    <footer>
+      </main>
+      <aside>
+        <h2>Цікавий факт</h2>
+        <p>
+          Мені подобається вивчати нові технології через практичні завдання та
+          лабораторні роботи.
+        </p>
+      </aside>
+      <footer>
         <p>&copy; 2026 Мусієнко Іван. Всі права захищені.</p>
-    </footer>
-    
-    <a href="#" class="back-to-top">↑ Нагору</a>
-    
-</body>
+      </footer>
+
+      <a href="#" class="back-to-top">↑ Нагору</a>
+    </div>
+  </body>
 </html>
