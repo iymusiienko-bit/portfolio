@@ -236,7 +236,9 @@ figcaption {
     color: #6b7280;
     font-size: 0.9rem;
 }
-
+#hero {
+    border-left: 0.35rem solid #2563eb;
+}
 /* ===== Таблиця ===== */
 
 table {
